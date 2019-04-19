@@ -24,11 +24,11 @@ export default class CoverEntity {
   }
 
   get isFullyOpenTilt() {
-    return this._attr.current_tilt_position === 100;
+    return this._attr.current_tilt_position === this._attr.max_tilt;
   }
 
   get isFullyClosedTilt() {
-    return this._attr.current_tilt_position === 0;
+    return this._attr.current_tilt_position === this._attr.min_tilt;
   }
 
   get isOpening() {

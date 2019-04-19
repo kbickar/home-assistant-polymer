@@ -52,6 +52,8 @@ class MoreInfoCover extends LocalizeMixin(PolymerElement) {
             caption="[[localize('ui.card.cover.tilt_position')]]"
             pin=""
             extra=""
+            min="{{coverTiltPositionSliderMin}}"
+            max="{{coverTiltPositionSliderMax}}"
             value="{{coverTiltPositionSliderValue}}"
             disabled="[[!entityObj.supportsSetTiltPosition]]"
             on-change="coverTiltPositionSliderChanged"
@@ -81,6 +83,8 @@ class MoreInfoCover extends LocalizeMixin(PolymerElement) {
       },
       coverPositionSliderValue: Number,
       coverTiltPositionSliderValue: Number,
+      coverTiltPositionSliderMin: Number,
+      coverTiltPositionSliderMax: Number,
     };
   }
 
@@ -93,6 +97,8 @@ class MoreInfoCover extends LocalizeMixin(PolymerElement) {
       this.setProperties({
         coverPositionSliderValue: newVal.attributes.current_position,
         coverTiltPositionSliderValue: newVal.attributes.current_tilt_position,
+        coverTiltPositionSliderMin: newVal.attributes.min_tilt,
+        coverTiltPositionSliderMax: newVal.attributes.max_tilt,
       });
     }
   }
@@ -102,6 +108,8 @@ class MoreInfoCover extends LocalizeMixin(PolymerElement) {
       attributeClassNames(stateObj, [
         "current_position",
         "current_tilt_position",
+        "min_tilt",
+        "max_tilt",
       ]),
       featureClassNames(stateObj, FEATURE_CLASS_NAMES),
     ];
